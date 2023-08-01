@@ -1,28 +1,12 @@
-import argparse
-import os
-import parser
-from torch.utils.data.sampler import SubsetRandomSampler
 import torch.utils.data
 import torch.backends.cudnn as cudnn
-from torch.nn.modules.loss import CrossEntropyLoss
-from data_utils.data_loader import dataset
-from callbacks import AverageMeter, Logger, set_save_path, error_set_save_path
+from callbacks import AverageMeter, Logger, set_save_path
 import time
-import numpy as np
 from collections import OrderedDict
-import shutil
 from utils import *
-import collections
-import math
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.nn.modules.loss import CrossEntropyLoss
-import torch.optim as optim
 from torch.utils.data import DataLoader
 import json
 import pickle
-from datasets.CrossTask_args import parse_args
 from datasets.CrossTask_dataloader import *
 from focalloss import *
 
@@ -110,7 +94,7 @@ parser.add_argument(
     default="ddn",
     help="The type of dataset processing loader: either ddn or plate",
 )
-parser.add_argument('--epochs', default=500, type=int, help='number of epochs')
+parser.add_argument('--epochs', default=200, type=int, help='number of epochs')
 parser.add_argument('--batch_size', default=32, type=int, help='batch size')
 parser.add_argument('--max_traj_len', default=4, type=int, help='action number')
 parser.add_argument('--gpu', default='1', type=str)

@@ -94,9 +94,8 @@ parser.add_argument(
 )
 
 parser.add_argument('--epochs', default=200, type=int, help='number of epochs')
-parser.add_argument('--batch_size', default=16, type=int, help='batch size')
-
-parser.add_argument('--max_traj_len', default=6, type=int, help='action number')
+parser.add_argument('--batch_size', default=32, type=int, help='batch size')
+parser.add_argument('--max_traj_len', default=3, type=int, help='action number')
 parser.add_argument('--gpu', default='1', type=str)
 parser.add_argument('--dataset_root', default='./crosstask/')
 parser.add_argument('--frameduration', default=3, type=int)
@@ -118,17 +117,18 @@ parser.add_argument('--d_model', default=1024, type=int)
 parser.add_argument('--decoder_dropout', default=0, type=float)
 parser.add_argument('--feat_dropout', default=0, type=float)
 parser.add_argument('--resume', default='', type=str, help='path to latest checkpoint (default: none)')
+
 parser.add_argument('--seed', default=999999999, type=int)
+
 parser.add_argument('--exist_datasplit', default=True, type=bool)
 parser.add_argument('--dim_feedforward', default=1024, type=int)
 parser.add_argument('--mlp_mid', default=512, type=int)
 parser.add_argument('--feat_mid', default=1024, type=int)
-parser.add_argument('--query_length', default=7, type=int)
-parser.add_argument('--memory_length', default=7, type=int)
+parser.add_argument('--query_length', default=4, type=int)
+parser.add_argument('--memory_length', default=4, type=int)
+parser.add_argument('--init_weight', default=True, type=bool)
 parser.add_argument('--gamma', default=1.5, type=float)
 parser.add_argument('--smallmid_ratio', default=3, type=int)
-
-# options
 args = parser.parse_args()
 
 print(args)
@@ -244,7 +244,7 @@ print("Testing dataset has {} samples".format(len(testset)))
 reference = [x[2] for x in testset.plan_vids]
 all_ref = np.array(reference)
 
-from model.model_baseline_tower6 import Model
+from model.model_baseline_cont import Model
 model = Model(args)
 model = model.cuda()
 
@@ -330,9 +330,7 @@ def inference(args, model_path=False):
         frames = frames.cuda()
         lowlevel_labels = lowlevel_labels.cuda()
         with torch.no_grad():
-            lowlevel_labels = lowlevel_labels
-            _, _, _, _, output \
-                = model(frames)
+            output = model(frames)
 
             output_reshaped = output.contiguous().view(-1, output.shape[-1])
 
@@ -346,6 +344,7 @@ def inference(args, model_path=False):
             rst = lowlevel_labels.squeeze(-1).cpu().numpy().astype("int")
             miou = acc_iou(rst, gt, False)
             miou = miou.mean()
+
 
         acc_meter.update(acc.item(), frames.size(0))
         success_rate_meter.update(success_rate.item(), frames.size(0))
@@ -369,4 +368,4 @@ def inference(args, model_path=False):
 
 
 if __name__ == '__main__':
-    inference(args, model_path='./checkpoints/CrossTask_t6_best.pth.tar')
+    inference(args, model_path='./checkpoints/CrossTask_t3_best.pth.tar')

@@ -1,24 +1,9 @@
-import argparse
-import os
-import parser
-from torch.utils.data.sampler import SubsetRandomSampler
 import torch.utils.data
 import torch.backends.cudnn as cudnn
-from torch.nn.modules.loss import CrossEntropyLoss
-from data_utils.data_loader import dataset
-from callbacks import AverageMeter, Logger, set_save_path, error_set_save_path
+from callbacks import AverageMeter, Logger, set_save_path
 import time
-import numpy as np
 from collections import OrderedDict
-import shutil
 from utils import *
-import collections
-import math
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.nn.modules.loss import CrossEntropyLoss
-import torch.optim as optim
 from torch.utils.data import DataLoader
 import json
 import pickle
@@ -28,7 +13,7 @@ from focalloss import *
 
 parser = argparse.ArgumentParser()
 
-data_path = "../baseline_P3IV/datasets/CrossTask_assets"
+data_path = "../skipplan/datasets/CrossTask_assets"
 
 parser.add_argument(
     "--data_path", type=str, default=data_path, help="default data path"

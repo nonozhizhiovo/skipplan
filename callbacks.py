@@ -1,12 +1,8 @@
 import sys
 import time
-import os
-import warnings
-import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pylab as plt
-from torch.optim.optimizer import Optimizer
 import logging
 import shutil
 

@@ -1,14 +1,28 @@
 # Skip-Plan: Procedure Planning in Instructional Videos via Condensed Action Space Learning
-Zhiheng Li, Geng Wenjia, Muheng Li, Lei Chen, Yansong Tang, Jiwen Lu, Jie Zhou
-## Install Dependency
-* `conda create --channel conda-forge --name procedureFormer python=3.7.3`
-* `conda activate procedureFormer`
-* `conda install --file requirements.txt`
+Zhiheng Li, Wenjia Geng, Muheng Li, Lei Chen, Yansong Tang, Jiwen Lu, Jie Zhou
+## Installation
+python==3.8.17
+
+Install other packages `pip install -r requirements.txt`
 
 This code assumes CUDA support.
 
+## Download and Set-up CrossTask Dataset
+```
+cd datasets/CrossTask_assets
+wget https://www.di.ens.fr/~dzhukov/crosstask/crosstask_release.zip
+wget https://www.di.ens.fr/~dzhukov/crosstask/crosstask_features.zip
+wget https://vision.eecs.yorku.ca/WebShare/CrossTask_s3d.zip
+unzip '*.zip'
+```
+
+## Download pretrained models
+Please download the pretrained models from [Google Drive](https://drive.google.com/drive/folders/1_8dwpin7IAagE3f9e01TTpaz3uqpcn7E?usp=sharing).
+Arrange pretrained models into the path `checkpoint/CrossTask_t3/4/5/6_best.pth.tar`
+
+
 ## Train and test on CrossTask dataset: 
-(i) Train
+### (i) Train
 
 T = 3: 
 ```
@@ -29,7 +43,7 @@ T = 6:
 python train_tower6.py
 ```
 
-(ii) Test on the pretrained model: 
+### (ii) Test on the pretrained model: 
 
 T = 3: 
 ```
