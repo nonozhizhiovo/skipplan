@@ -1,20 +1,11 @@
 # modified from https://github.com/Lextal/pspnet-pytorch
 import random
 import numbers
-import math
 import collections
 import torchvision
-import statistics 
-from scipy.special import softmax
 from torchvision import transforms
 import torchvision.transforms.functional as F
-from collections import Counter
-from itertools import groupby
-
 from PIL import ImageOps, Image
-import numpy as np
-import pickle as cp
-import os.path as osp
 
 class Padding:
     def __init__(self, pad):
