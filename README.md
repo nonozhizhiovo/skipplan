@@ -18,7 +18,7 @@ unzip '*.zip'
 
 ## Download pretrained models
 Please download the pretrained models from [Google Drive](https://drive.google.com/drive/folders/1_8dwpin7IAagE3f9e01TTpaz3uqpcn7E?usp=sharing).
-Arrange pretrained models into the path `checkpoint/CrossTask_t3/4/5/6_best.pth.tar`
+Arrange pretrained models into the path `checkpoint/CrossTask_t3 & 4 & 5 & 6_best.pth.tar`
 
 
 ## Train and test on CrossTask dataset: 
@@ -43,7 +43,7 @@ T = 6:
 python train_tower6.py
 ```
 
-### (ii) Test on the pretrained model: 
+### (ii) Test the pretrained model: 
 
 T = 3: 
 ```
@@ -71,5 +71,7 @@ If you find this code useful in your work then please cite
 ## Contact
 Please contact Zhiheng Li @ lizhihan21@mails.tsinghua.edu.cn if any issue.
 
-## References
+## Acknowledgements
+
+This code is built on [P3IV](https://github.com/SamsungLabs/procedure-planning). We thank the authors for sharing their codes and extracted features.
 
