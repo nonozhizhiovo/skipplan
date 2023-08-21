@@ -18,7 +18,7 @@ unzip '*.zip'
 
 ## Download pretrained models
 Please download the pretrained models from [Google Drive](https://drive.google.com/drive/folders/1_8dwpin7IAagE3f9e01TTpaz3uqpcn7E?usp=sharing).
-Arrange pretrained models into the path `checkpoint/CrossTask_t3 & 4 & 5 & 6_best.pth.tar`
+Arrange pretrained models into the path `checkpoint/CrossTask_t3 or 4 or 5 or 6_best.pth.tar`
 
 
 ## Train and test on CrossTask dataset: 
