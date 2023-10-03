@@ -66,6 +66,7 @@ python test_tower6.py
 ## Citation
 
 If you find this code useful in your work then please cite
+```
 @inproceedings{li2023skip,
   title={Skip-Plan: Procedure Planning in Instructional Videos via Condensed Action Space Learning},
   author={Li, Zhiheng and Geng, Wenjia and Li, Muheng and Chen, Lei and Tang, Yansong and Lu, Jiwen and Zhou, Jie},
@@ -73,6 +74,7 @@ If you find this code useful in your work then please cite
   pages={10297--10306},
   year={2023}
 }
+```
 
 ## Contact
 Please contact Zhiheng Li @ lizhihan21@mails.tsinghua.edu.cn if any issue.
