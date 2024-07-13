@@ -1,5 +1,5 @@
 # Skip-Plan: Procedure Planning in Instructional Videos via Condensed Action Space Learning
-Zhiheng Li, Wenjia Geng, Muheng Li, Lei Chen, Yansong Tang, Jiwen Lu, Jie Zhou
+[Zhiheng Li](https://nonozhizhiovo.github.io/), Wenjia Geng, Muheng Li, Lei Chen, [Yansong Tang](https://andytang15.github.io/), Jiwen Lu, Jie Zhou
 ## Installation
 python==3.8.17
 
